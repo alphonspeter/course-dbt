@@ -21,9 +21,9 @@ sum(datediff(day, created_at, delivered_at)) / count(*) as average_days_to_deliv
 from delivery_not_null
 
 4.How many users have only made one purchase? Two purchases? Three+ purchases? 
-one_order	25
-two_orders	28
-three_or_more_orders	71
+one_order -	25
+two_orders -	28
+three_or_more_orders -	71
 
 with source_cte as (
 select o.user_id as user, count(distinct order_id) as total_orders from stg_postgres_orders o
