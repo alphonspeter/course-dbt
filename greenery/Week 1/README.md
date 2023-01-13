@@ -3,13 +3,14 @@
 
 
 2.On average, how many orders do we receive per hour? -- 7.52 orders
-```
-select 
+```select 
     count(DISTINCT order_id) as "total orders",
     (DATEDIFF(day,min(created_at), max(created_at))+1) as days,
     count(DISTINCT order_id)/((DATEDIFF(day,min(created_at), max(created_at))+1)*24) as average
-from RAW.PUBLIC.ORDERS
-```
+from RAW.PUBLIC.ORDERS```
+
+
+
 3.On average, how long does an order take from being placed to being delivered? -- 3.89 ~~ approx 4 days
 
 ```with delivery_not_null as 
@@ -20,6 +21,8 @@ count(*) as total_orders,
 sum(datediff(day, created_at, delivered_at)) as total_days,
 sum(datediff(day, created_at, delivered_at)) / count(*) as average_days_to_deliver
 from delivery_not_null```
+
+
 
 4.How many users have only made one purchase? Two purchases? Three+ purchases? 
 one_order -	25
