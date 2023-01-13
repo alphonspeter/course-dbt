@@ -3,12 +3,13 @@ select count(distinct user_id) from stg_postgres_users
 -130
 
 2.On average, how many orders do we receive per hour? -- 7.52 orders
+```
 select 
     count(DISTINCT order_id) as "total orders",
     (DATEDIFF(day,min(created_at), max(created_at))+1) as days,
     count(DISTINCT order_id)/((DATEDIFF(day,min(created_at), max(created_at))+1)*24) as average
 from RAW.PUBLIC.ORDERS
-
+```
 3.On average, how long does an order take from being placed to being delivered? -- 3.89 ~~ approx 4 days
 
 with delivery_not_null as 
