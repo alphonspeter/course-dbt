@@ -3,7 +3,8 @@
 With source as (select user_id, count(*) as total_orders from stg_postgres_orders
 group by 1
 order by 2 desc
-)```
+)
+```
  
 select count(distinct case when total_orders >1 then user_id end) as repeat_users, count(user_id) as total_users,
 count(distinct case when total_orders >1 then user_id end) / count(user_id) *100 as repeat_rate
@@ -24,7 +25,8 @@ select e.user_id, sum(sessions), sum(sales), sum(sales)/ sum(sessions) *100 as C
 from events e 
 left join orders o on e.user_id = o.user_id
 group by 1
-order by 3 desc```
+order by 3 desc
+```
 
 3. Why did you organise the models in the way you did? (only includig fact/dim that is modelled with more than one staging model)
 
@@ -51,6 +53,7 @@ Which orders changed from week 1 to week 2?
 select * from orders_snapshot
 where order_id in ('b4eec587-6bca-4b2a-b3d3-ef2db72c4a4f',
 'e42ba9a9-986a-4f00-8dd2-5cf8462c74ea',
-'265f9aae-561a-4232-a78a-7052466e46b7') ```
+'265f9aae-561a-4232-a78a-7052466e46b7') 
+```
 
 All three orders status moved from 'preparing' to 'shipped'
