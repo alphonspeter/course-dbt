@@ -1,0 +1,63 @@
+version: 2
+
+models: 
+    - name: int_users_addresses
+      description: Intermediate model to build dim_users 
+      columns: 
+         - name: user_id
+           tests:
+            - not_null
+            - unique
+
+         - name: address_id
+           tests:
+            - not_null
+        
+
+    - name: dim_product
+      description: Dimension model for products 
+      columns: 
+         - name: product_id
+           tests:
+            - not_null
+            - unique
+
+         - name: name
+           tests:
+            - not_null
+            - unique
+
+         - name: price
+           tests:
+            - positive_values
+
+         - name: inventory
+           tests:
+            - positive_values
+
+    - name: dim_users
+      description: Dimension model for users  
+
+    - name: fact_orders
+      description: Fact orders table 
+      columns: 
+         - name: order_id
+           tests:
+            - not_null
+            - unique
+
+         - name: address_id
+           tests:
+            - not_null
+
+         - name: order_cost
+           tests:
+            - positive_values
+
+         - name: shipping_cost
+           tests:
+            - positive_values
+
+         - name: order_total
+           tests:
+            - positive_values

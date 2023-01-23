@@ -1,0 +1,1 @@
+Select * from {{ ref('int_users_orders') }}

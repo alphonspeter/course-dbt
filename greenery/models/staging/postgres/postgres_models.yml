@@ -1,0 +1,59 @@
+version : 2
+
+models: 
+  - name: stg_postgres_addresses
+    description: Addresses table for greenery postgres transactions
+    columns:
+    - name: address_id
+      tests:
+        - not_null
+        - unique
+
+  - name: stg_postgres_events
+    description: Event table for greenery postgres transactions
+    columns: 
+    - name: event_id
+      tests: 
+        - not_null
+        - unique
+
+  - name: stg_postgres_order_items
+    decsription: Order quantity table for greenery postgres data source
+    columns: 
+    - name : order_id
+      tests:
+        - not_null
+        # - unique -- taking this out as multiple items can belong to a single order
+
+  - name: stg_postgres_orders
+    description: orders table for greenery postgres transactions
+    columns:
+    - name: order_id
+      tests:
+        - not_null
+        - unique
+
+  - name: stg_postgres_products
+    description: Products table for greenery postgres data source
+    columns: 
+    - name: product_id
+      tests: 
+        - not_null
+        - unique
+
+  - name: stg_postgres_promos
+    decsription: Promos table for greenery postgres data source
+    columns: 
+    - name : promo_id
+      tests:
+        - not_null
+        - unique
+
+  - name: stg_postgres_users
+    decsription: Promos table for greenery postgres data source
+    columns: 
+    - name : user_id
+      tests:
+        - not_null
+        - unique
+  

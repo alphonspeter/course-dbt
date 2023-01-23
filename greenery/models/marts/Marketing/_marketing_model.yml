@@ -1,0 +1,25 @@
+version: 2
+
+models: 
+    - name: int_users_orders
+      description: Intermediate model to build fact_user_orders
+      columns: 
+         - name: user_id
+           tests:
+            - not_null
+            - unique
+            
+         - name: Total_Order_Cost
+           tests:
+            - positive_values
+
+         - name: Total_Shipping_Cost
+           tests:
+            - positive_values
+
+         - name: Order_and_Shipping_Total
+           tests:
+            - positive_values
+
+    - name: fact_user_orders
+      description: Fact user orders table 

@@ -1,0 +1,32 @@
+version: 2
+
+models: 
+    - name: int_product_measures
+      description: Intermediate model to build fact_product_measures 
+      columns: 
+         - name: product_id
+           tests:
+            - not_null
+
+         - name: date
+           tests:
+            - not_null
+
+         - name: total_page_views
+           tests:
+            - positive_values
+
+         - name: total_add_to_carts
+           tests:
+            - positive_values
+
+         - name: total_sessions
+           tests:
+            - positive_values
+
+         - name: total_orders
+           tests:
+            - positive_values
+
+    - name: fact_product_measures
+      description: Fact product measures table 
