@@ -43,3 +43,14 @@ it only get passed order_id, once the event type is 'checkout' or 'package shipp
 
 The tests are available under _core_model.yml, _marketing_model.yml and _product_midel.yml. 
 Basic tests such as positive values for orders, costs etc. Unique and not_null tests for primary keys such as order_id, session-id, product_id. 
+
+5. Run the orders snapshot model using dbt snapshot and query it in snowflake to see how the data has changed since last week. 
+Which orders changed from week 1 to week 2? 
+
+```
+select * from orders_snapshot
+where order_id in ('b4eec587-6bca-4b2a-b3d3-ef2db72c4a4f',
+'e42ba9a9-986a-4f00-8dd2-5cf8462c74ea',
+'265f9aae-561a-4232-a78a-7052466e46b7') ```
+
+All three orders status moved from 'preparing' to 'shipped'
