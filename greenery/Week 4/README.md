@@ -51,6 +51,6 @@ Skills i have picked is understanding structure of a completely new dbt project:
 5. How would you go about setting up a production/scheduled dbt run of your project in an ideal state? 
 
 We currently use airflow to orchestrate the runs for tables and DBT cloud for main models. 
-Schedule should be based on parent timings: i ebelieve we can set this in cron setup in DBT
-I would like to see Metadata like artifacts --> sources.json for freshness check, run_results.json for checking performances of models over time
+Schedule should be based on parent timings: I believe we can set this in cron setup in DBT.
+I would like to see Metadata like artifacts --> sources.json for freshness check, run_results.json for checking performances of models over time.
 Also Exposures seems great to see the downstream effects if I plan to make changes to a model in my instance. 
